@@ -2,13 +2,26 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle as pk
+import os
+import gdown
 
 def main():
 
     st.set_page_config(
         page_title= "Car Price predictor"
     )
-    model = pk.load(open("../model/model.pkl", "rb"))
+
+
+    # model = pk.load(open("../model/model.pkl", "rb"))
+
+    MODEL_PATH = "model.pkl"
+
+    if not os.path.exists(MODEL_PATH):
+        url = "https://drive.google.com/uc?id=1Iaw2JXeCLj9jzisi3PSTb2DWunr1RFuY"
+        gdown.download(url, MODEL_PATH, quiet=False)
+
+    with open(MODEL_PATH, "rb") as f:
+        model = pk.load(f)
 
     st.title("Car Price Predictor")
 
