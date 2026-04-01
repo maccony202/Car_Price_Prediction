@@ -1,2 +1,2 @@
-# Ignore model file
-/model/model.pkl
+# Ignore model
+model/model.pkl
