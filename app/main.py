@@ -49,8 +49,18 @@ def main():
     # Handle categorical variables
     input_data = pd.get_dummies(input_data)
 
+    columns_path = "model_columns.pkl"
+
+    if not os.path.exists(columns_path):
+        # url = "https://drive.google.com/uc?id=1Iaw2JXeCLj9jzisi3PSTb2DWunr1RFuY"
+        url = "https://drive.google.com/uc?id=1zHoe562gA8YI3MZUWrf6U2KcxT64G8j9"
+        gdown.download(url, columns_path, quiet=False)
+
+    with open(columns_path, "rb") as f:
+        model_columns = pk.load(f)
+
     # Align with training columns
-    model_columns = pk.load(open("../model/model_columns.pkl", "rb"))
+    # model_columns = pk.load(open("../model/model_columns.pkl", "rb"))
 
     for col in model_columns:
         if col not in input_data:
