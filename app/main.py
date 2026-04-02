@@ -5,6 +5,8 @@ import pickle as pk
 import os
 import gdown
 
+
+@st.cache_resource
 def main():
 
     st.set_page_config(
