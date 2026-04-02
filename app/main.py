@@ -6,7 +6,6 @@ import os
 import gdown
 
 
-@st.cache_resource
 def main():
 
     st.set_page_config(
@@ -19,7 +18,8 @@ def main():
     MODEL_PATH = "model.pkl"
 
     if not os.path.exists(MODEL_PATH):
-        url = "https://drive.google.com/uc?id=1Iaw2JXeCLj9jzisi3PSTb2DWunr1RFuY"
+        # url = "https://drive.google.com/uc?id=1Iaw2JXeCLj9jzisi3PSTb2DWunr1RFuY"
+        url = "https://drive.google.com/uc?id=1d1UpaNRu9dXTEQ53tYiCDcm-F8EDKZbD"
         gdown.download(url, MODEL_PATH, quiet=False)
 
     with open(MODEL_PATH, "rb") as f:
