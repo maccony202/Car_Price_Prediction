@@ -2,7 +2,7 @@ import pickle as pk
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_absolute_error,mean_squared_error,r2_score
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LinearRegression
 import pandas as pd
 import numpy as np
 
@@ -30,7 +30,7 @@ def create_model(car_data):
     x = scaler.fit_transform(x)
     
     #model training
-    model = RandomForestRegressor(n_estimators=200, random_state=42)
+    model = LinearRegression()
     model.fit(x_train, y_train)
 
     #saving the train model
